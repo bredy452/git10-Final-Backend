@@ -12,7 +12,7 @@ const jsonwebtoken = require('jsonwebtoken');
 
 require('dotenv').config()
 
-const mongodbURI = process.env.MONGODBURI
+const MONGODBURI = process.env.MONGODBURI
 // set up connection with the DB
 mongoose.connect(MONGODBURI,{
 	useNewUrlParser:true,
