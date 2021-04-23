@@ -69,7 +69,7 @@ router.post('/', (req, res) => {
 })
 
 
-router.delete('/signout', (req, res) => {
+router.delete('/', (req, res) => {
     User.findOne({ username: req.body.username}, (err, foundUser) => {
         if (err) {
                 res.send(err)
