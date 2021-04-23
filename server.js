@@ -49,6 +49,10 @@ app.use(cookieParser(process.env.SECRET));
 // app.use(jwt({ secret: process.env.SECRET, algorithms: ['HS256'] }));
 app.use(
     session({
+        cookie:{
+            secure: true,
+            maxAge:60000
+               },
         secret: process.env.SECRET,
         resave: false,
         saveUninitialized: true
