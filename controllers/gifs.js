@@ -9,18 +9,19 @@ gifs.get('/', (req, res) => {
         if (error){
             res.status(400).json({error: error.message})
         }
-            res.status(200).json(foundGifs)
+            res.status(200).(foundGifs)
         })
     })
 
 
 //create
-gifs.post("/", (req, res) => {
+gifs.post('/', (req, res) => {
   GifsModel.create(req.body, (error, createdGif) => {
     if (error){
       res.status(400).json({error:error.message})
   }
       res.status(201).json(createdGif)
+      console.log(createdGif)
     })
 })
 
