@@ -9,16 +9,13 @@ gifs.get('/', (req, res) => {
         if (error){
             res.status(400).json({error: error.message})
         }
-            let gifArray = []
-            gifArray.push(foundGifs)
-            res.status(200).json(gifArray)
-            console.log(foundGifs)
+            res.status(200).json(foundGifs)
         })
     })
 
 
 //create
-gifs.post('/', (req, res) => {
+gifs.post("/", (req, res) => {
   GifsModel.create(req.body, (error, createdGif) => {
     if (error){
       res.status(400).json({error:error.message})

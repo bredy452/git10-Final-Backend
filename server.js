@@ -30,10 +30,10 @@ db.on('disconnected', ()=> console.log('mongoose disconnected'));
 app.use(express.json());
 
 // cors middleware
-const whitelist = ['http://localhost:3000', 'https://p3sandboxfrontend.herokuapp.com']
+const whitelist = ['http://localhost:3001', 'https://p3sandboxfrontend.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1)  {
+        if (whitelist.indexOf(origin) >= 0)  {
             callback(null, true)
         } 
         else {
