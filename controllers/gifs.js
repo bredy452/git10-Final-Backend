@@ -9,7 +9,10 @@ gifs.get('/', (req, res) => {
         if (error){
             res.status(400).json({error: error.message})
         }
-            res.status(200).foundGifs
+            let gifArray = []
+            gifArray.push(foundGifs)
+            res.status(200).json(gifArray)
+            console.log(foundGifs)
         })
     })
 

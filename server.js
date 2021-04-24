@@ -30,17 +30,18 @@ db.on('disconnected', ()=> console.log('mongoose disconnected'));
 app.use(express.json());
 
 // cors middleware
-const whitelist = ['http://localhost:3001', 'https://p3sandboxfrontend.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'https://p3sandboxfrontend.herokuapp.com']
 const corsOptions = {
-	origin: (origin, callback) => {
-		if (whitelist.indexOf(origin) >=0 || !origin) {
-			callback(null, true)
-		} else {
-			callback(new Error('Not allowed by CORS'))
-		}
-	},
-	credentials: true,
-    methods: "GET, PUT, PATCH, POST, DELETE",
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1)  {
+            callback(null, true)
+        } 
+        else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
+     credentials: true,
+     methods: "GET, PUT, PATCH, POST, DELETE",
 }
 app.use(cors(corsOptions))
 app.use(cookieParser(process.env.SECRET));
@@ -86,5 +87,5 @@ app.use('/sessions', require('./controllers/sessions'))
 
 
 app.listen(PORT, () => {
-    console.log('gif is listening on port', PORT)
+    console.log('gif is listeing on port', PORT)
 })
